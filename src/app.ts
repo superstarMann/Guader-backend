@@ -5,18 +5,18 @@ import logger from 'morgan';
 import schema from './shema';
 
 class App {
-    public app : GraphQLServer;
-    constructor(){
-        this.app = new GraphQLServer({schema});
-        this.middleware();
+    public app: GraphQLServer;
+    constructor() {
+      this.app = new GraphQLServer({
+        schema
+      });
+      this.middlewares();
     }
-
-    private middleware = ():void => {
-        this.app.express.use(cors())
-        this.app.express.use(logger("dev"))
-        this.app.express.use(helmet())
-    }
-
-}
-
-export default new App().app
+    private middlewares = (): void => {
+      this.app.express.use(cors());
+      this.app.express.use(logger("dev"));
+      this.app.express.use(helmet());
+    };
+  }
+  
+  export default new App().app;
