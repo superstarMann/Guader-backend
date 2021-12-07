@@ -79,4 +79,3 @@ export class User extends BaseEntity{
         return bcrypt.hash(pasword, 10)
     }
 }
-export default User;
