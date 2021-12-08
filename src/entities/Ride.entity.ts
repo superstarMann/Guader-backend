@@ -1,6 +1,8 @@
 import { rideStatus } from "src/types/types";
-import { BaseEntity, Column, CreateDateColumn, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { BaseEntity, Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { User } from "./User";
 
+@Entity()
 export class Ride extends BaseEntity{
     @PrimaryGeneratedColumn()
     id: number;
@@ -19,7 +21,7 @@ export class Ride extends BaseEntity{
 
     @Column({type:"text"})
     dropOffAddress: string;
-;
+    
     @Column({type:"double precision", default: 0})
     dropOffLat: number;
 
@@ -34,6 +36,12 @@ export class Ride extends BaseEntity{
 
     @Column({type:"text"})
     duration: string;
+
+    @ManyToOne(() => User, user => user.ridesAsDriver)
+    driver: User;
+
+    @ManyToOne(() => User, user => user.ridesAsPassenger)
+    passenger: User;
 
     @CreateDateColumn()
     createdAt: string;
