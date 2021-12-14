@@ -51,14 +51,27 @@ type Ride {
   updatedAt: String
 }
 
-type FacebookConnectResponse {
+type EamilSignInResponse {
   ok: Boolean!
   error: String
   token: String
 }
 
 type Mutation {
+  EmailSignIn(email: String!, password: String!): EamilSignInResponse!
   FacebookConnect(firstName: String!, lastName: String!, email: String, fbId: String!): FacebookConnectResponse!
+  PhoneVerification(phoneNumber: String!): PhoneVerificationResponse!
+}
+
+type FacebookConnectResponse {
+  ok: Boolean!
+  error: String
+  token: String
+}
+
+type PhoneVerificationResponse {
+  ok: Boolean!
+  error: String
 }
 
 type User {
@@ -81,7 +94,6 @@ type User {
   lastOrientation: Float
   chat: Chat
   messages: [Message]
-  verifications: [Verification]
   ridesAsPassenger: [Ride]
   ridesAsDriver: [Ride]
   fbId: String
@@ -94,8 +106,6 @@ type Verification {
   target: String!
   payload: String!
   key: String!
-  used: Boolean!
-  user: User!
   createdAt: String!
   updatedAt: String
 }

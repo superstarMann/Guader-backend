@@ -4,10 +4,8 @@ import { Resolvers } from "../../../types/resolvers";
 
 const resolvers: Resolvers = {
     Mutation: {
-      FacebookConnect: async (
-        _,
-        args: FacebookConnectMutationArgs
-      ): Promise<FacebookConnectResponse> => {
+      FacebookConnect: async (_,args: FacebookConnectMutationArgs):
+      Promise<FacebookConnectResponse> => {
         const { fbId } = args;
         try {
           const existingUser = await User.findOne({ fbId });

@@ -3,7 +3,6 @@ import { BaseEntity, BeforeInsert, BeforeUpdate, Column, CreateDateColumn, Entit
 import bcrypt from 'bcrypt';
 import { Chat } from "./Chat";
 import { Message } from "./Message";
-import { Verification } from "./Verification.entity";
 import { Ride } from "./Ride.entity";
 
 @Entity()
@@ -66,9 +65,6 @@ export class User extends BaseEntity{
     @OneToMany(() => Message, message => message.user)
     messages: Message[];
     
-    @OneToMany(() => Verification, verification => verification.user)
-    verifications: Verification[]
-
     @OneToMany(() => Ride, ride => ride.passenger)
     ridesAsPassenger: Ride[];
 
