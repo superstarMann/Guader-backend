@@ -1,14 +1,14 @@
 type User {
   id: Int!
   email: String
-  verifiedEmail: Boolean!
+  password: String
   firstName: String!
   lastName: String!
   age: Int
-  password: String
   phoneNumber: String
   fullName: String
-  verifiedPhonenNumber: Boolean!
+  verifiedPhoneNumber: Boolean!
+  verifiedEmail: Boolean!
   profilePhoto: String
   isWalking: Boolean!
   isProtecting: Boolean!

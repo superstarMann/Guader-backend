@@ -20,7 +20,7 @@
       "experimentalDecorators": true,
       "emitDecoratorMetadata": true,
       "outDir": "./dist/",
-      "incremental": true
+      "incremental": true,
     },
     "exclude": [
       "node_modules",

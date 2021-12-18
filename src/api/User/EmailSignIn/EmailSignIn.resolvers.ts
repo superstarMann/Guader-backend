@@ -1,3 +1,4 @@
+import createJWT from "../../../utils/createJWT";
 import { User } from "../../../entities/User"
 import { EamilSignInResponse, EmailSignInMutationArgs } from "../../../types/graph";
 import { Resolvers } from "../../../types/resolvers";
@@ -21,14 +22,15 @@ export const resolvers: Resolvers = {
                 if(!checkPassword){
                     return{
                         ok: false,
-                        error: `Password is wrong`,
+                        error: `Wrong Password`,
                         token: null
                     }
                 }
+                const token = createJWT(user.id);
                 return{
                     ok: true,
                     error: null,
-                    token: `Comming soon`
+                    token
                 }
             }catch(error){
                 return {

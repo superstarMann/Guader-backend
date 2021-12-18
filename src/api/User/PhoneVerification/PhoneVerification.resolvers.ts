@@ -1,6 +1,7 @@
 import { Verification } from "../../../entities/Verification.entity";
 import { PhoneVerificationMutationArgs, PhoneVerificationResponse } from "src/types/graph";
-import { Resolvers } from "src/types/resolvers";
+import { Resolvers } from "../../../types/resolvers";
+import { sendVerificationSMS } from "../../../utils/sendSMS";
 
 export const resolvers: Resolvers ={
     Mutation: {
@@ -13,6 +14,12 @@ export const resolvers: Resolvers ={
                 if(existingVerification){
                     existingVerification.remove();
                 }
+                const newVerification = await Verification.create({
+                    payload: phoneNumber,
+                    target: "PHONE"
+                }).save()
+                console.log(newVerification)
+                await sendVerificationSMS(newVerification.payload, newVerification.key)
                 return{
                     ok: true,
                     error: null

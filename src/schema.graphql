@@ -29,6 +29,7 @@ type Place {
 type Query {
   place: Place
   ride: Ride
+  GetMyProfile: GetMyProfileResponse!
   user: User
   verification: Verification
 }
@@ -51,22 +52,42 @@ type Ride {
   updatedAt: String
 }
 
-type EamilSignInResponse {
+type CompleteVerificationResponse {
   ok: Boolean!
   error: String
   token: String
 }
 
 type Mutation {
+  CompleteVerification(phoneNumber: String!, key: String!): CompleteVerificationResponse!
   EmailSignIn(email: String!, password: String!): EamilSignInResponse!
+  EmailSignUp(email: String!, password: String!, firstName: String!, lastName: String!, age: Int!, phoneNumber: String!, profilePhoto: String!): EmailSignUpResponse!
   FacebookConnect(firstName: String!, lastName: String!, email: String, fbId: String!): FacebookConnectResponse!
   PhoneVerification(phoneNumber: String!): PhoneVerificationResponse!
+}
+
+type EamilSignInResponse {
+  ok: Boolean!
+  error: String
+  token: String
+}
+
+type EmailSignUpResponse {
+  ok: Boolean!
+  error: String
+  token: String
 }
 
 type FacebookConnectResponse {
   ok: Boolean!
   error: String
   token: String
+}
+
+type GetMyProfileResponse {
+  ok: Boolean!
+  error: String
+  user: User
 }
 
 type PhoneVerificationResponse {
@@ -77,14 +98,14 @@ type PhoneVerificationResponse {
 type User {
   id: Int!
   email: String
-  verifiedEmail: Boolean!
+  password: String
   firstName: String!
   lastName: String!
   age: Int
-  password: String
   phoneNumber: String
   fullName: String
-  verifiedPhonenNumber: Boolean!
+  verifiedPhoneNumber: Boolean!
+  verifiedEmail: Boolean!
   profilePhoto: String
   isWalking: Boolean!
   isProtecting: Boolean!
@@ -106,6 +127,7 @@ type Verification {
   target: String!
   payload: String!
   key: String!
+  verified: Boolean!
   createdAt: String!
   updatedAt: String
 }
