@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt';
 import { Chat } from "./Chat";
 import { Message } from "./Messag";
 import { Ride } from "./Ride.enitity";
-import { Place } from "./Place.entity";
+import Place from "./Place.entity";
 
 const BCRYPT_ROUNDS = 10
 

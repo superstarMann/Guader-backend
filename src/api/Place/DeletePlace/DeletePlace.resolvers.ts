@@ -1,4 +1,4 @@
-import { Place } from "../../../entities/Place.entity";
+import Place  from "../../../entities/Place.entity";
 import User from "../../../entities/User.entity";
 import { DeletePlaceMutationArgs, DeletePlaceResponse } from "../../../types/graph";
 import { Resolvers } from "../../../types/resolvers";

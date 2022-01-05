@@ -1,5 +1,5 @@
 import { cleanNullArgs } from "../../../utils/cleanNullArgs";
-import { Place } from "../../../entities/Place.entity";
+import Place  from "../../../entities/Place.entity";
 import User from "../../../entities/User.entity";
 import { EditPlaceMutationArgs, EditPlaceResponse } from "../../../types/graph";
 import { Resolvers } from "../../../types/resolvers";
