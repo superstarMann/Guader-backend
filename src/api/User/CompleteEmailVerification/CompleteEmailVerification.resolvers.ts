@@ -1,5 +1,5 @@
 import { Verification } from "../../../entities/Verification.entity";
-import { User } from "../../../entities/User.entity";
+import User from "../../../entities/User.entity";
 import { CompleteEmailVerificationMutationArgs, CompleteEmailVerificationResponse } from "../../../types/graph";
 import { Resolvers } from "../../../types/resolvers";
 import privateResolver from "../../../utils/privateResolver";

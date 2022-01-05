@@ -1,5 +1,5 @@
 import { createJWT } from "../../../utils/createJWT";
-import { User } from "../../../entities/User.entity";
+import User from "../../../entities/User.entity";
 import { EmailSignUpMutationArgs, EmailSignUpResponse } from "../../../types/graph";
 import { Resolvers } from "../../../types/resolvers";
 import { Verification } from "../../../entities/Verification.entity";

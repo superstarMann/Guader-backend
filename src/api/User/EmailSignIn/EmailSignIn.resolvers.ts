@@ -1,6 +1,6 @@
 import { Resolvers } from "../../../types/resolvers";
 import { EmailSignInMutationArgs, EmailSignInResponse } from "../../../types/graph";
-import { User } from "../../../entities/User.entity";
+import User from "../../../entities/User.entity";
 import { createJWT } from "../../../utils/createJWT";
 
 export const resolvers: Resolvers = {

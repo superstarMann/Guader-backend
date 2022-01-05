@@ -4,11 +4,12 @@ import bcrypt from 'bcrypt';
 import { Chat } from "./Chat";
 import { Message } from "./Messag";
 import { Ride } from "./Ride.enitity";
+import { Place } from "./Place.entity";
 
 const BCRYPT_ROUNDS = 10
 
 @Entity()
-export class User extends BaseEntity{
+class User extends BaseEntity{
     @PrimaryGeneratedColumn()
     id: number;
 
@@ -72,6 +73,9 @@ export class User extends BaseEntity{
 
     @OneToMany(() => Ride, ride => ride.driver)
     ridesAsDriver: Ride[];
+
+    @OneToMany(type => Place, place => place.user)
+    places: Place[];
     
     @CreateDateColumn()
     createdAt: string
@@ -99,3 +103,5 @@ export class User extends BaseEntity{
         return bcrypt.hash(password, BCRYPT_ROUNDS)
     }
 }
+
+export default User

@@ -1,5 +1,5 @@
 import { createJWT } from "../../../utils/createJWT";
-import { User } from "../../../entities/User.entity";
+import User from "../../../entities/User.entity";
 import { Verification } from "../../../entities/Verification.entity";
 import { CompletePhoneVerificationMutationArgs, CompletePhoneVerificationResponse } from "../../../types/graph";
 import { Resolvers } from "../../../types/resolvers";
@@ -18,7 +18,7 @@ export const resolvers: Resolvers = {
                 if(!verification){
                     return{
                         ok: false,
-                        error: `Verification key not valid`,
+                        error: `Verification is not valid`,
                         token: null
                     }
                 }else{
