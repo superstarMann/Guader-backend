@@ -1,5 +1,5 @@
-import Place  from "../../../entities/Place.entity";
-import User from "../../../entities/User.entity";
+import Place  from "../../../entities/Place";
+import User from "../../../entities/User";
 import { DeletePlaceMutationArgs, DeletePlaceResponse } from "../../../types/graph";
 import { Resolvers } from "../../../types/resolvers";
 import privateResolver from "../../../utils/privateResolver";

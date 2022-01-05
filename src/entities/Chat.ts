@@ -1,6 +1,6 @@
 import { BaseEntity,  CreateDateColumn,  Entity,  OneToMany,  PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Message } from "./Messag";
-import User from "./User.entity";
+import User from "./User";
 
 @Entity()
 export class Chat extends BaseEntity{

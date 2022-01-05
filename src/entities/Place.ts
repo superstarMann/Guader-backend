@@ -1,5 +1,13 @@
-import { BaseEntity, Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
-import User from "./User.entity";
+import {
+  BaseEntity,
+  Column,
+  CreateDateColumn,
+  Entity,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn
+} from "typeorm";
+import User from './User'
 
 @Entity()
 class Place extends BaseEntity {
@@ -26,10 +34,8 @@ class Place extends BaseEntity {
   @ManyToOne(type => User, user => user.places)
   user: User;
 
-  @CreateDateColumn() 
-  createdAt: string;
+  @CreateDateColumn() createdAt: string;
 
-  @UpdateDateColumn() 
-  updatedAt: string;
+  @UpdateDateColumn() updatedAt: string;
 }
 export default Place;

@@ -1,4 +1,4 @@
-import User from "../../../entities/User.entity"
+import User from "../../../entities/User"
 import { GetMyPlacesResponse } from "../../../types/graph";
 import { Resolvers } from "../../../types/resolvers";
 import privateResolver from "../../../utils/privateResolver";

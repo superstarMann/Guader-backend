@@ -1,5 +1,5 @@
 import { cleanNullArgs } from "../../../utils/cleanNullArgs";
-import User from "../../../entities/User.entity";
+import User from "../../../entities/User";
 import { UpdateMyProfileMutationArgs, UpdateMyProfileResponse } from "../../../types/graph";
 import { Resolvers } from "../../../types/resolvers";
 import privateResolver from "../../../utils/privateResolver";

@@ -55,7 +55,6 @@ type Query {
   GetMyPlaces: GetMyPlacesResponse!
   ride: Ride
   GetMyProfile: GetMyProfileResponse!
-  user: User
   verification: Verification
 }
 

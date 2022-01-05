@@ -1,6 +1,6 @@
-import { rideStatus } from "src/types/types";
+import { rideStatus } from "../types/types";
 import { BaseEntity, Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
-import User from "./User.entity";
+import User from "./User";
 
 @Entity()
 export class Ride extends BaseEntity{
