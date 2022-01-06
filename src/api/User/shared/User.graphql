@@ -15,7 +15,7 @@ type User {
  isTaken: Boolean!
  lastLng: Float
  lastLat: Float
- lastorientation: Float
+ lastOrientation: Float
  fbId: String
  messages: [Message]
  chat: Chat
@@ -24,4 +24,8 @@ type User {
  places: [Place]
  createdAt: String!
  updatedAt: String
+}
+
+type Query{
+user: User
 }

@@ -8,7 +8,7 @@ export const resolvers: Resolvers = {
         GetMyPlaces: privateResolver(
             async( _, __, {req} ): Promise<GetMyPlacesResponse> => {
                 try{
-                    const user = await User.findOne(
+                    const user: any = await User.findOne(
                         { id: req.user.id },
                         { relations: ["places"] }
                         );
