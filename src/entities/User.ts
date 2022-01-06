@@ -81,8 +81,8 @@ class User extends BaseEntity {
   @OneToMany(type => Ride, ride => ride.passenger)
   ridesAsPassenger: Ride[];
 
-  @OneToMany(type => Ride, ride => ride.driver)
-  ridesAsDriver: Ride[];
+  @OneToMany(type => Ride, ride => ride.guader)
+  ridesAsGuader: Ride[];
 
   @OneToMany(type => Place, place => place.user)
   places: Place[];

@@ -55,7 +55,7 @@ type Query {
   GetMyPlaces: GetMyPlacesResponse!
   ride: Ride
   GetMyProfile: GetMyProfileResponse!
-  GetNearbyDrivers: GetNearbyDriversResponse!
+  GetNearbyGuader: GetNearbyGuaderResponse!
   user: User
   verification: Verification
 }
@@ -77,18 +77,18 @@ type Ride {
   id: Int!
   status: String!
   pickUpAddress: String!
-  PickUpLat: Float!
-  PickUpLng: Float!
+  pickUpLat: Float!
+  pickUpLng: Float!
   dropOffAddress: String!
   dropOffLat: Float!
   dropOffLng: Float!
   price: Float!
   distance: String!
   duration: String!
-  driver: User!
+  guader: User!
   passenger: User!
-  created: String!
-  updated: String
+  createdAt: String!
+  updatedAt: String
 }
 
 type CompleteEmailVerificationResponse {
@@ -126,10 +126,10 @@ type GetMyProfileResponse {
   user: User
 }
 
-type GetNearbyDriversResponse {
+type GetNearbyGuaderResponse {
   ok: Boolean!
   error: String
-  drivers: [User]
+  guaders: [User]
 }
 
 type RequestEmailVerificationResponse {
@@ -154,12 +154,12 @@ type User {
   isTaken: Boolean!
   lastLng: Float
   lastLat: Float
-  lastorientation: Float
+  lastOrientation: Float
   fbId: String
   messages: [Message]
   chat: Chat
   ridesAsPassenger: [Ride]
-  ridesAsDriver: [Ride]
+  ridesAsGuader: [Ride]
   places: [Place]
   createdAt: String!
   updatedAt: String
