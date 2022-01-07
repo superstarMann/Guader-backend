@@ -29,6 +29,7 @@ type Mutation {
   EmailSignIn(email: String!, password: String!): EmailSignInResponse!
   EmailSignUp(email: String!, password: String!, firstName: String!, lastName: String!, age: Int!, phoneNumber: String!, profilePhoto: String!): EmailSignUpResponse!
   FacebookConnect(firstName: String!, lastName: String!, email: String, fbId: String!): FacebookConnectResponse!
+  ReportMovement(orientation: Float, lastLat: Float, lastLng: Float): ReportMovementResponse!
   RequestEmailVerification: RequestEmailVerificationResponse!
   StartPhoneVerification(phoneNumber: String!): StartPhoneVerificationResponse!
   ToggleWalkingMode: ToggleWalkingModeResponse!
@@ -130,6 +131,15 @@ type GetNearbyGuaderResponse {
   ok: Boolean!
   error: String
   guaders: [User]
+}
+
+type Subscription {
+  GuaderSubscription: User
+}
+
+type ReportMovementResponse {
+  ok: Boolean!
+  error: String
 }
 
 type RequestEmailVerificationResponse {
