@@ -67,7 +67,7 @@ class User extends BaseEntity {
   lastLat: number;
 
   @Column({ type: "double precision", default: 0})
-  lastorientation: number;
+  lastOrientation: number;
 
   @Column({ type: "text", nullable: true })
   fbId: string;
