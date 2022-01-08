@@ -14,7 +14,8 @@ export const resolvers: Resolvers = {
                 const notNull = cleanNullArgs(args)
                 try{
                     await User.update({id: user.id}, {...notNull})
-                    pubSub.publish("hi", {GuaderSubscription: user})
+                    const updateUser = await User.findOne({id: user.id})
+                    pubSub.publish("guaderUpdate", {GuaderSubscription: updateUser})
                     return{
                         ok: true,
                         error: null
