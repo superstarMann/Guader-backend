@@ -24,6 +24,7 @@ type Mutation {
   AddPlace(name: String!, lat: Float!, lng: Float!, address: String!, isFav: Boolean!): AddPlaceResponse!
   DeletePlace(placeId: Int!): DeletePlaceResponse!
   EditPlace(placeId: Int!, name: String, isFav: Boolean): EditPlaceResponse!
+  RequestProtect(pickUpAddress: String!, pickUpLat: Float!, pickUpLng: Float!, dropOffAddress: String!, dropOffLat: Float!, dropOffLng: Float!, price: Float!, distance: String!, duration: String!): RequestProtectResponse!
   CompleteEmailVerification(key: String!): CompleteEmailVerificationResponse!
   CompletePhoneVerification(key: String!, phoneNumber: String!): CompletePhoneVerificationResponse!
   EmailSignIn(email: String!, password: String!): EmailSignInResponse!
@@ -54,9 +55,10 @@ type GetMyPlacesResponse {
 
 type Query {
   GetMyPlaces: GetMyPlacesResponse!
+  GetNearbyRide: GetNearbyRideResponse!
   ride: Ride
   GetMyProfile: GetMyProfileResponse!
-  GetNearbyGuader: GetNearbyGuaderResponse!
+  GetNearbyGuaders: GetNearbyGuadersResponse!
   user: User
   verification: Verification
 }
@@ -72,6 +74,23 @@ type Place {
   user: User!
   createdAt: String!
   updatedAt: String
+}
+
+type GetNearbyRideResponse {
+  ok: Boolean!
+  error: String
+  ride: Ride
+}
+
+type Subscription {
+  NearByProtectSubscription: Ride
+  GuaderSubscription: User
+}
+
+type RequestProtectResponse {
+  ok: Boolean!
+  error: String
+  ride: Ride
 }
 
 type Ride {
@@ -127,14 +146,10 @@ type GetMyProfileResponse {
   user: User
 }
 
-type GetNearbyGuaderResponse {
+type GetNearbyGuadersResponse {
   ok: Boolean!
   error: String
   guaders: [User]
-}
-
-type Subscription {
-  GuaderSubscription: User
 }
 
 type ReportMovementResponse {

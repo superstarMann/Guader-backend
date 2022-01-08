@@ -1,9 +1,0 @@
-type GetNearbyGuaderResponse{
-ok: Boolean!
-error: String
-guaders: [User]
-}
-
-type Query{
- GetNearbyGuader: GetNearbyGuaderResponse!
-}

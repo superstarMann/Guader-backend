@@ -1,13 +1,13 @@
 import { Between, getRepository } from "typeorm";
 import User from "../../../entities/User";
-import { GetNearbyGuaderResponse } from "../../../types/graph";
+import { GetNearbyGuadersResponse } from "../../../types/graph";
 import { Resolvers } from "../../../types/resolvers";
 import privateResolver from "../../../utils/privateResolver";
 
 export const resolvers: Resolvers = {
     Query: {
-        GetNearbyGuader: privateResolver(
-            async(_, __, {req}): Promise<GetNearbyGuaderResponse> => {
+        GetNearbyGuaders: privateResolver(
+            async(_, __, {req}): Promise<GetNearbyGuadersResponse> => {
                 const user: User = req.user
                 const {lastLat, lastLng} = user
                 try{
