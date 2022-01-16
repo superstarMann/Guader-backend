@@ -39,7 +39,8 @@
     "twilio": "^3.71.3",
     "typeorm": "^0.2.41",
     "typescript": "^4.5.2",
-    "web-vitals": "^1.1.2"
+    "web-vitals": "^1.1.2",
+    "ytdl-core": "latest"
   },
   "scripts": {
     "stop": "Taskkill /IM node.exe /F",
