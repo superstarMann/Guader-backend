@@ -32,5 +32,6 @@
       "src/setupTests.ts",
       "models", 
       "js",
+      "dist"
     ]
   }

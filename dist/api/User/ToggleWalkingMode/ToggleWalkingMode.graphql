@@ -1,0 +1,8 @@
+type ToggleWalkingModeResponse{
+ ok: Boolean!
+ error: String
+}
+
+type Mutation{
+ToggleWalkingMode: ToggleWalkingModeResponse!
+}
