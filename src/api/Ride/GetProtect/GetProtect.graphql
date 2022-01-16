@@ -1,0 +1,9 @@
+type GetProtectResponse{
+ ok: Boolean!
+ error: String
+ ride: Ride
+}
+
+type Query{
+ GetProtect(rideId: Int!):GetProtectResponse!
+}

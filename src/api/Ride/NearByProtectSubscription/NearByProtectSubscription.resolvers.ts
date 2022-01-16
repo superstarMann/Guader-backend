@@ -4,7 +4,7 @@ import User from "../../../entities/User";
 export const resolvers ={
     Subscription: {
         NearByProtectSubscription:{
-            subscibe: withFilter(
+            subscribe: withFilter(
                 (_, __, {pubSub}) => pubSub.asyncIterator("protectRequest"),
                 (payload, __, {context}) => {
                    const user:User = context.currentUser;

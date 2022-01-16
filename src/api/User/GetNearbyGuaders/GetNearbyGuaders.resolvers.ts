@@ -11,7 +11,7 @@ export const resolvers: Resolvers = {
                 const user: User = req.user
                 const {lastLat, lastLng} = user
                 try{
-                    const guaders: any[] = await getRepository(User).find({
+                    const guaders = await getRepository(User).find({
                         isWalking: true,
                         lastLat: Between(lastLat - 0.05, lastLat + 0.05),
                         lastLng: Between(lastLng - 0.05, lastLng + 0.05)

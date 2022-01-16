@@ -11,7 +11,7 @@ export const resolvers: Resolvers= {
                 _, args: RequestProtectMutationArgs, {req, pubSub}
                 ): Promise<RequestProtectResponse> => {
                     const user: User = req.user
-                   if(!user.isProtecting){
+                   if(!user.isProtecting && !user.isWalking){
                     try{
                         const ride = await Ride.create({...args, passenger: user}).save()
                         pubSub.publish("protectRequest", {NearByProtectSubscription: ride})
