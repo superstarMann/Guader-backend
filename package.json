@@ -73,5 +73,7 @@
     "@types/mailgun-js": "^0.22.12",
     "@types/morgan": "^1.9.3"
   },
-  "optionalDependencies": { "fsevents": "2.1.2" }
+  "optionalDependencies": {
+    "fsevents": "2.1.2"
+  }
 }
