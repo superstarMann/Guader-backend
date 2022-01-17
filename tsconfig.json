@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-      "baseUrl": "./",
+      "baseUrl": ".",
       "module": "commonjs",
       "target": "es2019",
       "lib": ["es6", "dom", "esnext.asynciterable"],
@@ -19,7 +19,7 @@
       "skipLibCheck": true,
       "experimentalDecorators": true,
       "emitDecoratorMetadata": true,
-      "outDir": "./dist/",
+      "outDir": "dist",
       "incremental": true,
     },
     "exclude": [
@@ -32,5 +32,6 @@
       "src/setupTests.ts",
       "models", 
       "js",
+      "dist"
     ]
   }
