@@ -16,17 +16,25 @@
     "copy": "^0.3.2",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
+    "follow-redirects": "^1.14.7",
     "gql-merge": "0.0.6",
     "graphql-to-typescript": "^0.1.2",
     "graphql-tools": "^8.2.0",
     "graphql-yoga": "^1.18.3",
     "helmet": "^3.12.1",
+    "helmet-csp": "^3.4.0",
+    "immer": "^9.0.12",
     "jsonwebtoken": "^8.5.1",
     "mailgun-js": "^0.22.0",
     "merge-graphql-schemas": "^1.7.8",
     "morgan": "^1.10.0",
+    "netmask": "^2.0.2",
+    "node-forge": "^1.2.1",
     "nodemon": "^2.0.15",
+    "nth-check": "^2.0.1",
+    "pac-resolver": "^5.0.0",
     "pg": "^8.7.1",
+    "postcss": "^8.4.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
@@ -75,5 +83,5 @@
   },
   "optionalDependencies": {
     "fsevents": "2.1.2"
-   }
+  }
 }
