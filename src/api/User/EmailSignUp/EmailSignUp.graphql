@@ -10,7 +10,7 @@ EmailSignUp(
  password: String!
  firstName: String!
  lastName: String!
- age: Int!
+ age: String!
  phoneNumber: String!
  profilePhoto: String!
 ):EmailSignUpResponse!

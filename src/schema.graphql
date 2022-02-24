@@ -33,19 +33,19 @@ type Mutation {
   SendMessage(chatId: Int!, text: String!): SendMessageResponse!
   AddPlace(name: String!, lat: Float!, lng: Float!, address: String!, isFav: Boolean!): AddPlaceResponse!
   DeletePlace(placeId: Int!): DeletePlaceResponse!
-  EditPlace(placeId: Int!, name: String, isFav: Boolean): EditPlaceResponse!
+  EditPlace(id: Int!, name: String, isFav: Boolean): EditPlaceResponse!
   RequestProtect(pickUpAddress: String!, pickUpLat: Float!, pickUpLng: Float!, dropOffAddress: String!, dropOffLat: Float!, dropOffLng: Float!, price: Float!, distance: String!, duration: String!): RequestProtectResponse!
   UpdateProtectStatus(rideId: Int!, status: StatusOption!): UpdateProtectStatusResponse!
   CompleteEmailVerification(key: String!): CompleteEmailVerificationResponse!
   CompletePhoneVerification(key: String!, phoneNumber: String!): CompletePhoneVerificationResponse!
   EmailSignIn(email: String!, password: String!): EmailSignInResponse!
-  EmailSignUp(email: String!, password: String!, firstName: String!, lastName: String!, age: Int!, phoneNumber: String!, profilePhoto: String!): EmailSignUpResponse!
+  EmailSignUp(email: String!, password: String!, firstName: String!, lastName: String!, age: String!, phoneNumber: String!, profilePhoto: String!): EmailSignUpResponse!
   FacebookConnect(firstName: String!, lastName: String!, email: String, fbId: String!): FacebookConnectResponse!
   ReportMovement(lastOrientation: Float, lastLat: Float, lastLng: Float): ReportMovementResponse!
   RequestEmailVerification: RequestEmailVerificationResponse!
   StartPhoneVerification(phoneNumber: String!): StartPhoneVerificationResponse!
-  ToggleWalkingMode: ToggleWalkingModeResponse!
-  UpdateMyProfile(firstName: String, lastName: String, age: Int, email: String, password: String, profilePhoto: String): UpdateMyProfileResponse!
+  ToggleWalkingMode(userId: Int!): ToggleWalkingModeResponse!
+  UpdateMyProfile(firstName: String, lastName: String, age: String, email: String, password: String, profilePhoto: String): UpdateMyProfileResponse!
 }
 
 type Chat {
@@ -65,6 +65,7 @@ type Message {
   id: Int!
   user: User!
   chat: Chat!
+  chatId: Int
   text: String!
   createdAt: String!
   updatedAt: String
@@ -73,6 +74,7 @@ type Message {
 type AddPlaceResponse {
   ok: Boolean!
   error: String
+  placeId: Int
 }
 
 type DeletePlaceResponse {
@@ -214,7 +216,7 @@ type User {
   password: String
   firstName: String!
   lastName: String!
-  age: Int
+  age: String
   phoneNumber: String
   fullName: String
   verifiedPhoneNumber: Boolean!

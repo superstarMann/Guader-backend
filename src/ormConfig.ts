@@ -1,6 +1,6 @@
 import {ConnectionOptions} from 'typeorm'
 
-export const connectiionOptions: ConnectionOptions ={
+export const connectionOptions: ConnectionOptions = {
     type:"postgres",
     database: "guader-backend",
     synchronize: true,

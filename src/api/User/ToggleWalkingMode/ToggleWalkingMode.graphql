@@ -4,5 +4,7 @@ type ToggleWalkingModeResponse{
 }
 
 type Mutation{
-ToggleWalkingMode: ToggleWalkingModeResponse!
+ToggleWalkingMode(
+  userId: Int!
+): ToggleWalkingModeResponse!
 }

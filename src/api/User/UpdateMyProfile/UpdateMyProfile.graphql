@@ -7,7 +7,7 @@ type Mutation {
  UpdateMyProfile(
   firstName: String
   lastName : String
-  age: Int
+  age: String
   email: String
   password: String
   profilePhoto: String

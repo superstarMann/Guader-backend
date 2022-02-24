@@ -10,15 +10,25 @@ export const resolvers: Resolvers = {
             async( _, args: AddPlaceMutationArgs, {req} ):Promise<AddPlaceResponse> => {
                 const user: User = req.user;
                  try{
-                    await Place.create({ ...args, user}).save();
-                     return{
-                         ok: true,
-                         error: null
-                     }
+                   const newPlace = await Place.create({ ...args, user}).save();
+                   if(newPlace){
+                       return{
+                           ok: true,
+                           error: null,
+                           placeId: newPlace.id
+                       }
+                   }else{
+                       return{
+                           ok: false,
+                           error: `Create Place Failed`,
+                           placeId: null
+                       }
+                   }
                  }catch(error){
                      return{
                          ok: false,
-                         error: error.message
+                         error: error.message,
+                         placeId: null
                      }
                  }
             }

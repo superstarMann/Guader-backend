@@ -4,7 +4,7 @@ type User {
  password: String
  firstName: String!
  lastName: String!
- age: Int
+ age: String
  phoneNumber: String
  fullName: String
  verifiedPhoneNumber: Boolean!

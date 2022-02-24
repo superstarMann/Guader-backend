@@ -1,24 +1,39 @@
 import User from "../../../entities/User";
-import { ToggleWalkingModeResponse } from "../../../types/graph";
+import { ToggleWalkingModeMutationArgs, ToggleWalkingModeResponse } from "../../../types/graph";
 import { Resolvers } from "../../../types/resolvers";
 import privateResolver from "../../../utils/privateResolver";
 
 export const resolvers: Resolvers = {
     Mutation: {
         ToggleWalkingMode: privateResolver(
-            async( _, __, {req}): Promise<ToggleWalkingModeResponse> =>{
+            async( _, args: ToggleWalkingModeMutationArgs, {req}): Promise<ToggleWalkingModeResponse> =>{
                 const user: User = req.user;
-                try{
-                    user.isWalking = !user.isWalking;
-                    user.save();
-                    return{
-                        ok: true,
-                        error: null
+                const existingUser = await User.findOne({id: args.userId})
+                if(existingUser){
+                    if(existingUser.id === user.id){
+                        try{
+                            user.isWalking = !user.isWalking;
+                            user.save();
+                            return{
+                                ok: true,
+                                error: null
+                            }
+                        }catch(error){
+                            return{
+                                ok: false,
+                                error: null
+                            }
+                        }
+                    }else{
+                        return{
+                            ok: false,
+                            error: `User is not match`
+                        }
                     }
-                }catch(error){
+                }else{
                     return{
                         ok: false,
-                        error: null
+                        error: `Not Found User`
                     }
                 }
             }
